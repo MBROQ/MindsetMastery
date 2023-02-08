@@ -42,7 +42,7 @@ test('Initialized at "3" skip "8"', () => {
 })
 
 test('No function in "init"', () => {
-    fibonacci.init();
+
     expect(fibonacci.next()).toBe(1);
 
 })
@@ -50,5 +50,17 @@ test('No function in "init"', () => {
 test('When Initialized "21" next number to show with next condition "8"', () => {
     fibonacci.init(21);
     expect(fibonacci.next(8)).toBe(34);
+
+})
+
+test('When Initialized "-1" test will throw', () => {
+    fibonacci.init(-1);
+    expect(fibonacci.next(8)).toThrow();
+
+});
+
+test('When Initialized "8" skip "-3" to throw', () => {
+    fibonacci.init(8);
+    expect(fibonacci.skip(-3)).toThrow();
 
 });
