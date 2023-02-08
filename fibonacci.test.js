@@ -5,7 +5,7 @@ let fibonacci;
 beforeEach(() => {
     fibonacci = new Fibonacci();
 });
-
+//Positive tests
 test('When initialized "2" the next number to show', () => {
     fibonacci.init(2);
     expect(fibonacci.next()).toBe(3);
@@ -58,9 +58,15 @@ test('When Initialized "-1" test will throw', () => {
     expect(fibonacci.next(8)).toThrow();
 
 });
-
+//Error tests
 test('When Initialized "8" skip "-3" to throw', () => {
     fibonacci.init(8);
     expect(fibonacci.skip(-3)).toThrow();
+
+});
+
+test('When Initialized "-1" skip to throw', () => {
+    fibonacci.init(-1);
+    expect(fibonacci.skip()).toThrow();
 
 });
